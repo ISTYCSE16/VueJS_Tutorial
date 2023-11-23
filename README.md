@@ -10,4 +10,4 @@
 To solve this issue, if a Webpage is built with Vue JS, A Barebone HTML page and a Vue Javascript Bundle is automatically downloaded from the server.\
 So when you click a Link, it is Routed through Vue JS Bundle and required components are loaded automatically. 
 That means a Single Barebones HTML code is downloaded, latter parts are controlled through Vue JS Bundle.\
-*This Is Why A Full Website Implementation using Vue JS is called Single Page Application*
+**This Is Why A Full Website Implementation using Vue JS is called Single Page Application**
