@@ -4,12 +4,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <title>Vue JS Tutorial</title>
+    <style>
+        .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome To Vue JS Tutorials</h1>
-    <script src="app.js"></script>
+    
     <div id="app">
+
+        <!-- Removing element from the DOM -->
+        <div v-if="showData">
+            <h2>{{ name }} - {{ profession }} - {{ age }}</h2>
+        </div>
+        <!-- Clicking a Button Below Will Either Show/Hide The Data -->
+        <!-- Here, the Div will be removed completely -->
+        <button @click="toggleShowData">
+            <span v-if="showData">Hide Data</span>
+            <span v-else>Show Data</span>
+        </button>
         
+        <!-- By not removing HTML from DOM, we can make things more efficient -->
+        <div v-show="showData">Showing Book Data</div>
+
+        <!-- ONE WAY OF CHANGING `age` -->
+        <!-- <button v-on:click="age++">Increase Age</button>
+        <button v-on:click="age--">Decrease Age</button> -->
+
+        <!-- BEST WAY OF CHANGING `age -->
+        <!-- We pass a method -->
+        <!-- <button v-on:click="increaseAge">Increase Age</button> 
+        <button v-on:click="decreaseAge">Decrease Age</button> -->
+
+        <!-- Replacement for `v-on:click` is @click -->
+        <!-- <div @click="name = 'New Title'">Change Name</div> -->
+        
+
+        <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div> 
+        <!-- if You are passing your own parameter, explicitly pass Event -->
+        <div class="box" @mouseleave="handleEvent">mouseleave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" ></div>
+
     </div>
+    <!-- NOTE: Any Component you put outside the div, Won't work because it's outside the scope of 'app' -->
+
+    <script src="app.js"></script>
 </body>
 </html>
